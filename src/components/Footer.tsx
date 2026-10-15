@@ -33,8 +33,6 @@ export default function Footer() {
         </ul>
       </div>
       <div className="wrap footer-legal">
-        <p>{s.footer.photos}</p>
-        <p>{s.footer.fonts}</p>
       </div>
     </footer>
   );
