@@ -73,6 +73,7 @@ export default function Product() {
           {p.image && (
             <p className="hint">
               {p.edited && `${s.product.photoNote} `}
+              {p.illustration && `${s.product.aiNote} `}
               <Ext className="inline-link" href={`${links.channel}/${p.post.id}`}>{s.product.postLink}</Ext>
             </p>
           )}

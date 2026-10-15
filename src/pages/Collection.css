@@ -35,6 +35,8 @@
 .grid-feature > div { padding: 20px; display: grid; gap: 14px; justify-items: start; }
 .grid-feature-h { font: italic 300 28px/1.05 var(--serif); }
 .grid-feature .btn-ivory { color: var(--midnight); }
+.grid-feature.is-sketch { background: radial-gradient(ellipse 90% 70% at 50% 35%, #1b2e50 0%, var(--midnight) 55%, var(--night) 100%); }
+.grid-feature.is-sketch .sketch { position: absolute; left: 22%; top: 8%; width: 56%; color: var(--champagne-light); }
 @media (max-width: 800px) { .grid-feature { grid-column: 1 / -1; min-height: 360px; } }
 select, input, textarea {
   min-height: 48px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--control);

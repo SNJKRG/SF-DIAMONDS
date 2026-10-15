@@ -2,7 +2,7 @@ import type { Product } from '../store.ts';
 
 // Single-line drawings stand in for the missing photographs of the six post records (demo-prices.md: no AI piece
 // may pass for them). Geometry is generic: a shape of the category, never a likeness of a branded model.
-type SketchKind = 'rings' | 'earrings' | 'necklaces' | 'chain' | 'bangle';
+type SketchKind = 'rings' | 'earrings' | 'necklaces' | 'watches' | 'chain' | 'bangle';
 export const sketchKind = (p: Product): SketchKind =>
   p.category === 'bracelets' ? (p.stones ? 'bangle' : 'chain') : (p.category as SketchKind);
 
@@ -36,6 +36,14 @@ export default function Sketch({ kind, stones = 0 }: { kind: SketchKind; stones?
           <ellipse {...line} cx="100" cy="158" rx="32" ry="52" />
           <ellipse {...line} cx="100" cy="158" rx="16" ry="28" />
           <path {...line} d="M100 106 L100 210 M68 158 L132 158" />
+        </>
+      )}
+      {kind === 'watches' && (
+        <>
+          <path {...line} d="M84 84 L80 20 L120 20 L116 84 M84 166 L80 230 L120 230 L116 166" />
+          <circle {...line} cx="100" cy="125" r="42" />
+          <circle {...line} cx="100" cy="125" r="34" />
+          <path {...line} d="M100 125 L100 102 M100 125 L117 133 M142 119 L149 119 L149 131 L142 131" />
         </>
       )}
       {kind === 'chain' && (

@@ -16,17 +16,19 @@ export type Product = {
   post: { id: number; date: string };
   image?: ImageName;
   edited?: boolean; // background changed by AI, stones original
+  illustration?: boolean; // AI picture drawn after the post's wording, not a photo of the piece: noted on the piece's page
   specs?: Record<Lang, string[]>;
 };
 
 // Site-only fields for the six historical records. Size and stone count come from the post wording (demo-prices.md).
-const meta: Record<string, Pick<Product, 'slug' | 'category' | 'size' | 'stones'>> = {
-  'source-price-01': { slug: 'earrings', category: 'earrings' },
-  'source-price-02': { slug: 'ring-size-55', category: 'rings', size: '55' },
-  'source-price-03': { slug: 'pendant', category: 'necklaces' },
-  'source-price-04': { slug: 'chain-bracelet', category: 'bracelets' },
-  'source-price-05': { slug: 'bracelet-4-stones', category: 'bracelets', size: '17', stones: 4 },
-  'source-price-06': { slug: 'bracelet-6-stones', category: 'bracelets', size: '17', stones: 6 },
+// The post has no usable photos of its own (screenshots of another site), so the owner chose AI illustrations (Oct 2026).
+const meta: Record<string, Pick<Product, 'slug' | 'category' | 'size' | 'stones' | 'image' | 'illustration'>> = {
+  'source-price-01': { slug: 'earrings', category: 'earrings', image: 'demo-earrings', illustration: true },
+  'source-price-02': { slug: 'ring-size-55', category: 'rings', size: '55', image: 'demo-ring', illustration: true },
+  'source-price-03': { slug: 'pendant', category: 'necklaces', image: 'demo-pendant', illustration: true },
+  'source-price-04': { slug: 'chain-bracelet', category: 'bracelets', image: 'demo-chain', illustration: true },
+  'source-price-05': { slug: 'bracelet-4-stones', category: 'bracelets', size: '17', stones: 4, image: 'demo-bangle-4', illustration: true },
+  'source-price-06': { slug: 'bracelet-6-stones', category: 'bracelets', size: '17', stones: 6, image: 'demo-bangle-6', illustration: true },
 };
 
 // sellerLabel is deliberately not exposed: third-party names do not prove originality (fact-register.md).
@@ -133,6 +135,32 @@ const own: Product[] = [
     id: 'sf-post-2804', slug: 'yellow-diamond-bracelet', category: 'bracelets', image: 'tg-yellow-2801', post: { id: 2804, date: '27.04.2026' },
     name: { ru: 'Браслет с жёлтыми бриллиантами', en: 'Yellow diamond bracelet' },
     specs: { ru: ['Природные бриллианты'], en: ['Natural diamonds'] },
+  },
+  {
+    id: 'sf-post-2333', slug: 'snake-case-watch', category: 'watches', image: 'tg-watch-snake-2334', post: { id: 2333, date: '10.11.2025' },
+    name: { ru: 'Часы со змеевидным корпусом', en: 'Snake-shaped watch' }, offer: 110000,
+    specs: {
+      ru: ['Сталь, кварцевый механизм', 'С лабораторными бриллиантами: 145 000'],
+      en: ['Steel, quartz movement', 'With lab-grown diamonds: 145,000'],
+    },
+  },
+  {
+    id: 'sf-post-2221', slug: 'square-case-watch', category: 'watches', image: 'tg-watch-square-2221', post: { id: 2221, date: '28.09.2025' },
+    name: { ru: 'Часы с квадратным корпусом, размер medium', en: 'Square-case watch, size medium' }, offer: 90000,
+    specs: { ru: ['Размер medium'], en: ['Size medium'] },
+  },
+  {
+    id: 'sf-post-2574', slug: 'oval-gold-plated-watch', category: 'watches', image: 'tg-watch-oval-2577', post: { id: 2574, date: '19.02.2026' },
+    name: { ru: 'Часы с овальным корпусом', en: 'Oval-case watch' },
+    specs: {
+      ru: ['Позолота 750 пробы', 'Под заказ из золота 750 пробы'],
+      en: ['18k (750) gold plating', 'To order in 18k (750) gold'],
+    },
+  },
+  {
+    id: 'sf-post-2011', slug: 'ice-blue-dial-watch', category: 'watches', image: 'tg-watch-blue-2011', post: { id: 2011, date: '13.07.2025' },
+    name: { ru: 'Часы с голубым циферблатом', en: 'Ice-blue dial watch' },
+    specs: { ru: ['Другие модели под заказ, 2–4 недели'], en: ['Other models to order, 2–4 weeks'] },
   },
 ];
 

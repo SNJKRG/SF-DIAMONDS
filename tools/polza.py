@@ -10,7 +10,7 @@ API = 'https://polza.ai/api/v1/media'
 def call(url, body=None):
     req = urllib.request.Request(url, data=json.dumps(body).encode() if body else None,
                                  headers={'Authorization': f'Bearer {KEY}', 'Content-Type': 'application/json'})
-    with urllib.request.urlopen(req, timeout=300) as r:
+    with urllib.request.urlopen(req, timeout=900) as r:
         return json.load(r)
 
 def main():

@@ -168,6 +168,7 @@ const ru = {
     message: ({ name, price, url, size, date }: EnquiryVars) => `Здравствуйте! Мне понравилась модель «${name}» (${price ? `${price} в публикации` : 'публикация'} SF от ${date}): ${url}. Интересует размер: ${size || 'пока не знаю'}. Подскажите актуальную стоимость, валюту, наличие и возможность примерки.`,
     unknown: 'Модель не найдена', // new
     photoNote: 'Фото из канала SF, фон обработан.', // new
+    aiNote: 'Иллюстрация создана ИИ по описанию из публикации, это не фото изделия. Попросите фото при обращении.',
     postLink: 'Публикация в канале SF', // new
     docsAsk: 'Документы на камни в публикации не указаны. Запросите их до заказа.', // new
   },
@@ -309,7 +310,7 @@ const ru = {
     line: 'SF Diamonds: украшения и часы.',
     instagram: 'Instagram', channel: 'Telegram-канал', reviews: 'Отзывы в Telegram',
     fonts: 'Шрифты Cormorant Garamond, Manrope и Unbounded по лицензии SIL Open Font License.', // new
-    photos: 'Фото украшений из канала SF. На части снимков фон и свет изменены с помощью ИИ, камни оригинальные.', // new
+    photos: 'Фото украшений из канала SF. На части снимков фон и свет изменены с помощью ИИ, камни оригинальные. Часть изображений у цен из публикации 06.09.2026 полностью создана ИИ, это указано на странице изделия.', // new
   },
 };
 
@@ -463,6 +464,7 @@ const en: Dict = {
     message: ({ name, price, url, size, date }: EnquiryVars) => `Hello, I’m interested in the “${name}” (${price ? `${price} in` : 'from'} SF’s post of ${date}): ${url}. My preferred size is ${size || 'not sure yet'}. Could you confirm the current price, currency, availability and viewing options?`,
     unknown: 'Piece not found',
     photoNote: 'Photo from the SF channel, background edited.',
+    aiNote: 'AI illustration based on the post’s description, not a photo of the piece. Ask for photos when you enquire.',
     postLink: 'The post in the SF channel',
     docsAsk: 'Stone documents are not stated in the post. Ask for them before ordering.',
   },
@@ -602,7 +604,7 @@ const en: Dict = {
     line: 'SF Diamonds jewellery and watches.',
     instagram: 'Instagram', channel: 'Telegram channel', reviews: 'Reviews on Telegram',
     fonts: 'Cormorant Garamond, Manrope and Unbounded fonts under the SIL Open Font License.',
-    photos: 'Jewellery photos from the SF channel. On some, the background and light were changed with AI; the stones are original.',
+    photos: 'Jewellery photos from the SF channel. On some, the background and light were changed with AI; the stones are original. Some pictures for the prices from the 6 September 2026 post are entirely AI-made; the piece’s page says so.',
   },
 };
 

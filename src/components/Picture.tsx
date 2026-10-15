@@ -39,6 +39,10 @@ const imgSet = {
   'tg-bracelets-3312': { widths: [560, 853], w: 853, h: 1066 },
   'tg-bracelets-2712': { widths: [560, 598], w: 598, h: 747 },
   'tg-yellow-2801': { widths: [560, 960], w: 960, h: 1200 },
+  'tg-watch-snake-2334': { widths: [560, 960], w: 960, h: 1200 },
+  'tg-watch-square-2221': { widths: [560, 960], w: 960, h: 1200 },
+  'tg-watch-oval-2577': { widths: [560, 960], w: 960, h: 1200 },
+  'tg-watch-blue-2011': { widths: [560, 960], w: 960, h: 1200 },
   'tg-bracelets': { widths: [560, 960], w: 960, h: 1200 },
   'tg-bracelets-tray': { widths: [598], w: 598, h: 748 },
   'tg-bracelet-studio': { widths: [720, 1280], w: 1280, h: 853 },
@@ -47,6 +51,13 @@ const imgSet = {
   // Own priced pieces: channel photo, AI-edited navy background, original stones (assets.sh).
   'sf-necklace-2062': { widths: [560, 960], w: 960, h: 1200 },
   'sf-studs-177': { widths: [560, 960], w: 960, h: 1200 },
+  // AI illustrations for the six priced records of 06.09.2026 (ai-generation-bases/out/prices/demo-*), labelled on the site.
+  'demo-earrings': { widths: [560, 960], w: 960, h: 1200 },
+  'demo-ring': { widths: [560, 960], w: 960, h: 1200 },
+  'demo-pendant': { widths: [560, 960], w: 960, h: 1200 },
+  'demo-chain': { widths: [560, 960], w: 960, h: 1200 },
+  'demo-bangle-4': { widths: [560, 960], w: 960, h: 1200 },
+  'demo-bangle-6': { widths: [560, 960], w: 960, h: 1200 },
 } as const;
 export type ImageName = keyof typeof imgSet;
 

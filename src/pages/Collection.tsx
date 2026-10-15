@@ -19,10 +19,7 @@ const budgets = [
   { id: 'gt200', test: (n: number) => n > 200_000 },
 ] as const;
 
-function ChipIcon({ cat }: { cat: Category }) {
-  if (cat === 'watches') return null;
-  return <span className="chip-ico" aria-hidden><Sketch kind={cat === 'bracelets' ? 'bangle' : cat} stones={cat === 'bracelets' ? 4 : 0} /></span>;
-}
+const CategorySketch = ({ cat }: { cat: Category }) => <Sketch kind={cat === 'bracelets' ? 'bangle' : cat} stones={cat === 'bracelets' ? 4 : 0} />;
 
 export default function Collection() {
   const { s, to } = useLang();
@@ -53,7 +50,7 @@ export default function Collection() {
       <div className="section wrap catalog">
         <nav className="chips" aria-label={s.filter.category}>
           <NavLink end to={to(`/collection${query}`)}>{s.filter.all}</NavLink>
-          {categories.map((c) => <NavLink key={c} to={to(`/collection/${c}${query}`)}><ChipIcon cat={c} />{s.categories.names[c]}</NavLink>)}
+          {categories.map((c) => <NavLink key={c} to={to(`/collection/${c}${query}`)}><span className="chip-ico" aria-hidden><CategorySketch cat={c} /></span>{s.categories.names[c]}</NavLink>)}
         </nav>
         <div className="toolbar">
           <div className="budget" role="group" aria-label={s.filter.budget}>
@@ -79,8 +76,10 @@ export default function Collection() {
         {list.length ? (
           <div className="grid">
             {list.map((p, i) => <ProductCard key={p.id} product={p} index={i % 4} headingLevel={2} />)}
-            <Reveal className="grid-feature" i={list.length % 4}>
-              <Picture name="sec-collection" alt={s.alts['sec-collection']} sizes="(max-width: 700px) 100vw, 25vw" />
+            {/* All pieces: the photo; a category: its own line drawing, so each category's closing card differs. */}
+            <Reveal className={`grid-feature${cat ? ' is-sketch' : ''}`} i={list.length % 4}>
+              {cat ? <CategorySketch cat={cat} />
+                : <Picture name="sec-collection" alt={s.alts['sec-collection']} sizes="(max-width: 700px) 100vw, 25vw" />}
               <div>
                 <p className="grid-feature-h">{s.collection.after}</p>
                 <WhatsApp text={s.collection.referenceMessage} className="btn btn-ivory btn-small">{s.cta.reference}</WhatsApp>

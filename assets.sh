@@ -71,6 +71,13 @@ tg tg-necklace 2073 960x1200+0+20 960 560
 PRICES=../ai-generation-bases/out/prices
 crop sf-necklace-2062 "$PRICES/necklace-2062-final.png" 1120x1400+0+0 960 560
 crop sf-studs-177 "$PRICES/studs-177-final.png" 912x1140+0+12 960 560
+# AI illustrations for the six priced records of 06.09.2026 (owner's choice; labelled "Illustration" on the site).
+crop demo-earrings "$PRICES/demo-01-earrings-gen.png" 1086x1358+0+45 960 560
+crop demo-ring "$PRICES/demo-02-ring-gen.png" 1086x1358+0+45 960 560
+crop demo-pendant "$PRICES/demo-03-pendant-gen.png" 1086x1358+0+45 960 560
+crop demo-chain "$PRICES/demo-04-chain-gen.png" 1086x1358+0+45 960 560
+crop demo-bangle-4 "$PRICES/demo-05-bangle-4-gen.png" 1086x1358+0+45 960 560
+crop demo-bangle-6 "$PRICES/demo-06-bangle-6-gen.png" 1086x1358+0+45 960 560
 
 # Section photos (one per place, never repeated): channel pieces re-staged by AI on site-palette surfaces, original
 # stones pasted back by mask where the angle allowed (ai-generation-bases/out/sections, prompts next to each image).
@@ -100,6 +107,11 @@ tg tg-bracelets-2662 2662 960x1200+0+26 960 560
 tg tg-bracelets-3312 3312 853x1066+0+71 853 560
 tg tg-bracelets-2712 2712 598x747+0+16 598 560
 tg tg-yellow-2801 2801 960x1200+0+26 960 560
+# Watches (own channel posts, graded, no AI).
+tg tg-watch-snake-2334 2334 960x1200+0+40 960 560
+tg tg-watch-square-2221 2221 960x1200+0+40 960 560
+tg tg-watch-oval-2577 2577 960x1200+2+40 960 560
+tg tg-watch-blue-2011 2011 960x1200+0+40 960 560
 crop tg-tennis-layers "$SEC/08-channel-tennis-layers-gen.png" 1003x1254+125+0 960 560
 
 # SF Instagram photos (ai-generation-bases/*.jpg), same SF grade, 4:5 crop: Bespoke steps, FAQ concierge, Contact.
