@@ -1,0 +1,41 @@
+/* ---------- Full-screen panels (home). Plain native scroll. ---------- */
+@media (min-width: 900px) and (min-height: 640px) {
+  /* Panels are exactly one viewport tall. */
+  .snap .panel:not(.about), .snap .about-a, .snap .about-b { height: 100svh; min-height: 0; overflow: hidden; }
+  .snap .panel:not(.bespoke) > .panel-inner { height: 100%; min-height: 0; }
+}
+.panel { position: relative; min-height: 100svh; }
+.panel-inner {
+  max-width: 1440px; margin-inline: auto; min-height: 100svh;
+  padding: clamp(104px, 12svh, 132px) var(--gutter) clamp(28px, 5svh, 56px);
+  display: flex; flex-direction: column;
+}
+.panel-ivory { background: var(--ivory); }
+.panel-warm { background: var(--warm); }
+.panel-white { background: #fff; }
+.panel-navy { background: radial-gradient(ellipse 80% 90% at 80% 0%, #1b2e50 0%, var(--midnight) 45%, var(--night) 100%); color: var(--ivory); }
+.panel-cognac { background: var(--cognac); color: var(--ivory); }
+
+.label {
+  display: flex; gap: 14px; align-items: baseline;
+  font: 400 11px/1.2 var(--display); letter-spacing: 0.14em; text-transform: uppercase;
+}
+.label span { color: var(--champagne); }
+.panel-head {
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 18px clamp(32px, 5vw, 96px);
+  align-items: end; margin-bottom: clamp(24px, 4svh, 44px);
+}
+.panel-head .label { grid-column: 1 / -1; }
+.panel-head h2 { font-size: clamp(40px, min(4.6vw, 8svh), 76px); line-height: 0.98; font-weight: 300; letter-spacing: -0.01em; }
+.caption { font-size: 12px; color: var(--steel); }
+@media (max-width: 860px) { .panel-head { grid-template-columns: 1fr; } }
+
+.panel-counter {
+  position: fixed; z-index: 40; right: 14px; top: 50%; margin: 0; writing-mode: vertical-rl; transform: translateY(-50%);
+  font: 400 11px/1 var(--display); letter-spacing: 0.12em; text-transform: uppercase;
+  color: #fff; mix-blend-mode: difference; pointer-events: none;
+  transition: opacity 0.4s;
+}
+.panel-counter em { font-style: normal; margin-top: 14px; }
+.panel-counter.on-dark { opacity: 0; }
+@media (max-width: 900px) { .panel-counter { display: none; } }

@@ -1,0 +1,34 @@
+/* ---------- About (Nida Tabba) ---------- */
+.about-a { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); min-height: 100svh; }
+.about-text { padding: clamp(96px, 12svh, 140px) var(--gutter) 48px; display: flex; flex-direction: column; justify-content: center; gap: 22px; align-items: flex-start; max-width: 640px; }
+.about-text h2 { font-size: clamp(44px, 4.8vw, 80px); line-height: 0.98; font-weight: 400; margin: 18px 0 18px; }
+.about-text p { font-size: 17px; line-height: 1.7; max-width: 46ch; }
+.about-text .text-link { margin-top: 12px; }
+.collage { position: relative; min-height: 560px; }
+.collage-tall { position: absolute; top: 0; right: 0; bottom: 0; width: 64%; }
+.collage-tall img { width: 100%; height: 100%; object-fit: cover; }
+.collage-inset { position: absolute; left: 4%; top: 24%; width: 42%; z-index: 1; }
+.collage-inset img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.collage .caption { position: absolute; left: 4%; bottom: 20px; }
+.about-b {
+  position: relative; min-height: 100svh; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: clamp(110px, 14svh, 150px) var(--gutter) 80px;
+}
+.caps {
+  align-self: flex-end; max-width: 34ch; margin-right: 6vw;
+  font: 400 clamp(16px, 1.45vw, 22px)/1.45 var(--sans); text-transform: uppercase; letter-spacing: 0.01em;
+}
+.big-line { position: relative; margin-top: clamp(24px, 8svh, 96px); }
+.scribble { position: absolute; left: 14%; top: 50%; width: min(46vw, 640px); transform: translateY(-48%); color: var(--midnight); }
+.scribble .sk { stroke: currentColor; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.reveal-on .big-line .sk { transition-duration: 3.2s; }
+.big { position: relative; text-align: center; font: 400 clamp(46px, 8.2vw, 150px)/1 var(--serif); letter-spacing: -0.015em; text-wrap: balance; }
+@media (max-width: 860px) {
+  .about-a { grid-template-columns: 1fr; }
+  .about-text { padding: 64px var(--gutter) 32px; }
+  .collage { min-height: 125vw; }
+  .collage-tall { width: 70%; }
+  .caps { align-self: flex-start; margin-right: 0; }
+  .scribble { width: 90vw; left: 0; }
+}

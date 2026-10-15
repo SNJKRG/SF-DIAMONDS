@@ -1,0 +1,50 @@
+.card { position: relative; display: flex; flex-direction: column; }
+.card-media { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 4px; background: var(--sand); }
+.card-face, .card-alt { position: absolute; inset: 0; display: grid; place-items: center; }
+.card-face .sketch { width: 64%; color: var(--midnight); }
+.card-face picture { width: 100%; height: 100%; }
+.card-face img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+/* Photo cards: the facts slide in over the photo instead of a navy sketch panel. */
+.has-photo .card-alt { background: linear-gradient(0deg, rgba(10, 22, 48, 0.88) 0%, rgba(10, 22, 48, 0) 55%); transform: none; }
+@media (hover: hover) { .card:hover .has-photo img { transform: scale(1.04); } }
+.card:has(.has-photo) .save-icon { color: var(--ivory); }
+.card-alt {
+  background: radial-gradient(ellipse 80% 70% at 50% 42%, #1b2e50 0%, var(--midnight) 60%, var(--night) 100%);
+  color: var(--champagne-light);
+  opacity: 0; transform: scale(1.4);
+  transition: opacity 1s var(--ease) 0.1s, transform 1s var(--ease);
+}
+.card-alt .sketch { width: 52%; }
+.card-alt ul {
+  position: absolute; left: 18px; right: 18px; bottom: 16px; margin: 0; padding: 0; list-style: none;
+  font: 400 10px/1.7 var(--display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ivory);
+}
+@media (hover: hover) {
+  .card:hover .card-alt { opacity: 1; transform: none; }
+  .card:hover .card-tag { color: rgba(243, 240, 233, 0.8); }
+  .card:hover .card-body { transform: translateY(-6px); }
+}
+.card-tag {
+  position: absolute; left: 16px; top: 16px; right: 56px; z-index: 1;
+  font: 400 9.5px/1.4 var(--display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--steel);
+  transition: color 0.4s;
+}
+.save-icon {
+  position: absolute; right: 6px; top: 6px; z-index: 3;
+  width: 44px; height: 44px; display: grid; place-items: center; cursor: pointer;
+  background: none; border: 0; color: var(--midnight); transition: color 0.3s, transform 0.3s var(--ease);
+}
+.save-icon svg { fill: none; stroke: currentColor; stroke-width: 1.3; transition: fill 0.3s; }
+.save-icon:hover { transform: scale(1.12); }
+.save-icon[aria-pressed='true'] svg { fill: var(--champagne); stroke: var(--champagne); }
+@media (hover: hover) { .card:hover .save-icon { color: var(--ivory); } }
+.card-body { padding-top: 16px; display: grid; gap: 4px; transition: transform 0.5s var(--ease); }
+.card-name { font-size: clamp(24px, 1.9vw, 30px); line-height: 1.05; }
+.card-name a { text-decoration: none; }
+.card-name a::after { content: ''; position: absolute; inset: 0; z-index: 2; }
+.card:has(.card-name a:focus-visible) .card-media { outline: 2px solid var(--midnight); outline-offset: 3px; }
+.card-name a:focus-visible { outline: none; }
+.card-price { font: 300 22px/1.2 var(--display); letter-spacing: -0.01em; font-variant-numeric: tabular-nums; margin-top: 6px; }
+.card-note { font-size: 12.5px; line-height: 1.45; color: var(--steel); }
+.card-regular { font-size: 12.5px; color: var(--midnight); }
+.card-price.is-request { font: 400 15px/1.4 var(--sans); color: var(--steel); }

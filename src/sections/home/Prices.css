@@ -1,0 +1,30 @@
+/* ---------- Price rail and cards (Aroz) ---------- */
+.rail-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 4px 22px; }
+.tabs button {
+  min-height: 44px; padding: 0; background: none; border: 0; cursor: pointer; color: var(--steel);
+  font: 400 11px/1 var(--display); letter-spacing: 0.12em; text-transform: uppercase;
+  border-bottom: 1px solid transparent;
+}
+.tabs button:hover { color: var(--midnight); }
+.tabs button[aria-pressed='true'] { color: var(--midnight); border-bottom-color: var(--midnight); }
+.arrows { display: flex; gap: 8px; }
+.arrows button {
+  width: 48px; height: 48px; border-radius: 50%; cursor: pointer; font-size: 18px;
+  background: transparent; border: 1px solid var(--control); transition: background-color 0.3s, color 0.3s;
+}
+.arrows button:hover { background: var(--midnight); color: var(--ivory); border-color: var(--midnight); }
+.rail {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+  margin-inline: calc(var(--gutter) * -1); padding: 4px var(--gutter) 8px; scroll-padding-inline: var(--gutter);
+  scrollbar-width: none; cursor: grab;
+}
+.rail::-webkit-scrollbar { display: none; }
+.rail.is-dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+.rail.is-dragging .card { pointer-events: none; }
+.rail .card { flex: 0 0 clamp(214px, min(21vw, (100svh - 610px) * 0.8), 330px); scroll-snap-align: start; }
+.rail-progress { position: relative; height: 1px; background: var(--hairline); margin-top: 14px; overflow: hidden; }
+.rail-progress span { position: absolute; left: 0; top: -1px; height: 3px; width: 30%; background: var(--midnight); transition: transform 0.2s linear; }
+.after-rail { margin-top: auto; padding-top: 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 48px; }
+.after-rail p { color: var(--steel); font-size: 15px; max-width: 64ch; }
+@media (max-width: 700px) { .arrows { display: none; } .rail .card { flex-basis: 72vw; } }

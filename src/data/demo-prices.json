@@ -1,0 +1,88 @@
+{
+  "status": "historical-demo-user-authorised",
+  "source": "https://t.me/Jewerly_store_sf",
+  "publishedAtLocal": "2026-09-06 13:42",
+  "timezone": null,
+  "currency": null,
+  "currentPriceConfirmed": false,
+  "items": [
+    {
+      "demoId": "source-price-01",
+      "name": {
+        "ru": "Серьги",
+        "en": "Earrings"
+      },
+      "sellerLabel": "Cartier Love",
+      "regularPriceInPost": 105000,
+      "offerPriceInPost": 90000,
+      "image": null,
+      "verifiedSKU": null,
+      "inStock": null
+    },
+    {
+      "demoId": "source-price-02",
+      "name": {
+        "ru": "Кольцо, размер 55",
+        "en": "Ring, size 55"
+      },
+      "sellerLabel": "Cartier JUC",
+      "regularPriceInPost": 105000,
+      "offerPriceInPost": 90000,
+      "image": null,
+      "verifiedSKU": null,
+      "inStock": null
+    },
+    {
+      "demoId": "source-price-03",
+      "name": {
+        "ru": "Подвеска",
+        "en": "Pendant"
+      },
+      "sellerLabel": "Cartier Love",
+      "regularPriceInPost": 125000,
+      "offerPriceInPost": 110000,
+      "image": null,
+      "verifiedSKU": null,
+      "inStock": null
+    },
+    {
+      "demoId": "source-price-04",
+      "name": {
+        "ru": "Браслет на цепочке",
+        "en": "Chain bracelet"
+      },
+      "sellerLabel": "Cartier Love",
+      "regularPriceInPost": 135000,
+      "offerPriceInPost": 115000,
+      "image": null,
+      "verifiedSKU": null,
+      "inStock": null
+    },
+    {
+      "demoId": "source-price-05",
+      "name": {
+        "ru": "Браслет, 4 камня, размер 17",
+        "en": "Bracelet, 4 stones, size 17"
+      },
+      "sellerLabel": "Cartier Love Classic, 4 diamonds",
+      "regularPriceInPost": 460000,
+      "offerPriceInPost": 420000,
+      "image": null,
+      "verifiedSKU": null,
+      "inStock": null
+    },
+    {
+      "demoId": "source-price-06",
+      "name": {
+        "ru": "Браслет, 6 камней, размер 17",
+        "en": "Bracelet, 6 stones, size 17"
+      },
+      "sellerLabel": "Cartier Love Small, 6 diamonds",
+      "regularPriceInPost": 350000,
+      "offerPriceInPost": 325000,
+      "image": null,
+      "verifiedSKU": null,
+      "inStock": null
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+// Header states at desktop and mobile: node qa/header.mjs <out-dir>
+import { chromium } from 'playwright';
+const out = process.argv[2];
+const b = await chromium.launch();
+const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
+await p.goto('http://localhost:4173/ru/', { waitUntil: 'networkidle' });
+await p.waitForTimeout(1500);
+await p.screenshot({ path: `${out}/h-top.png`, clip: { x: 0, y: 0, width: 1440, height: 420 } });
+await p.hover('.has-mega > a'); await p.waitForTimeout(700);
+await p.screenshot({ path: `${out}/h-mega.png`, clip: { x: 0, y: 0, width: 1440, height: 480 } });
+await p.mouse.move(700, 700);
+await p.mouse.wheel(0, 1300); await p.waitForTimeout(1200);
+await p.mouse.wheel(0, -120); await p.waitForTimeout(1200);
+await p.screenshot({ path: `${out}/h-solid.png`, clip: { x: 0, y: 0, width: 1440, height: 200 } });
+await p.goto('http://localhost:4173/ru/collection', { waitUntil: 'networkidle' }); await p.waitForTimeout(800);
+await p.screenshot({ path: `${out}/h-inner.png`, clip: { x: 0, y: 0, width: 1440, height: 360 } });
+const m = await b.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+await m.goto('http://localhost:4173/ru/', { waitUntil: 'networkidle' }); await m.waitForTimeout(1200);
+await m.screenshot({ path: `${out}/m-top.png` });
+await m.click('.menu-button'); await m.waitForTimeout(600);
+await m.screenshot({ path: `${out}/m-menu.png` });
+await b.close();

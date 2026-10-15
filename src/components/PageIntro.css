@@ -1,0 +1,10 @@
+/* ---------- Page intro (navy band at the top of inner pages) ---------- */
+.intro {
+  background: radial-gradient(ellipse 70% 120% at 85% 0%, #1b2e50 0%, var(--midnight) 45%, var(--night) 100%);
+  color: var(--ivory);
+  padding: clamp(140px, 14vw, 200px) 0 clamp(56px, 7vw, 104px);
+}
+.intro h1 { font-size: clamp(42px, 5.8vw, 88px); line-height: 0.98; max-width: 16ch; }
+.intro .lead { margin-top: 24px; max-width: 54ch; font-size: clamp(17px, 1.3vw, 20px); color: var(--ivory-soft); }
+.intro .actions { margin-top: 36px; }
+@media (max-width: 700px) { .intro .actions { flex-direction: column; } .intro .btn { width: 100%; } }

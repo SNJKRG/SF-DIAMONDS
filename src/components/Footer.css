@@ -1,0 +1,11 @@
+/* ---------- Footer ---------- */
+.site-footer { background: #0b1628; color: var(--ivory-soft); padding-top: clamp(56px, 7vw, 96px); }
+.site-footer .logo { color: var(--ivory); }
+.footer-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 5fr) minmax(0, 3fr); gap: 32px; }
+.footer-line { margin-top: 16px; max-width: 30ch; }
+.footer-links { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 32px; }
+.footer-grid > .footer-links { columns: 1; }
+.footer-links a { display: inline-flex; align-items: center; min-height: 40px; text-decoration: none; font-size: 15px; }
+.footer-links a:hover { color: var(--ivory); text-decoration: underline; text-underline-offset: 4px; }
+.footer-legal { margin-top: 48px; padding-block: 24px 32px; border-top: 1px solid rgba(243, 240, 233, 0.12); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 32px; font-size: 13px; color: rgba(243, 240, 233, 0.66); }
+@media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr; } }

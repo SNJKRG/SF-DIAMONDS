@@ -1,0 +1,47 @@
+/* ---------- Collection (Damas catalogue) ---------- */
+.catalog { padding-top: clamp(32px, 4vw, 56px); }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; padding-bottom: 24px; border-bottom: 1px solid var(--hairline); }
+.chips a {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 20px 0 6px; border-radius: 999px;
+  border: 1px solid var(--control); text-decoration: none;
+  font: 400 11px/1 var(--display); letter-spacing: 0.1em; text-transform: uppercase;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+.chips a:first-child { padding-left: 20px; }
+.chips a:hover { border-color: var(--midnight); }
+.chips a[aria-current='page'] { background: var(--midnight); border-color: var(--midnight); color: var(--ivory); }
+.chip-ico { width: 36px; height: 36px; border-radius: 50%; background: var(--sand); display: grid; place-items: center; color: var(--midnight); }
+.chip-ico .sketch { width: 30px; height: 36px; stroke-width: 1.4; }
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; padding-block: 18px 36px; }
+.budget { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.budget span { font: 400 10.5px/1 var(--display); letter-spacing: 0.12em; text-transform: uppercase; color: var(--steel); margin-right: 8px; }
+.budget button {
+  min-height: 40px; padding: 0 16px; border-radius: 999px; cursor: pointer;
+  background: transparent; border: 1px solid var(--hairline); font-size: 14px; font-variant-numeric: tabular-nums;
+}
+.budget button:hover { border-color: var(--midnight); }
+.budget button[aria-pressed='true'] { background: var(--sand); border-color: var(--midnight); }
+.toolbar-end { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+.sort select { max-width: 100%; }
+.toolbar .count { color: var(--steel); font-size: 15px; }
+.sort { display: flex; align-items: center; gap: 10px; font-size: 15px; }
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 48px 16px; }
+@media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 800px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 12px; } .card-name { font-size: 22px; } .card-price { font-size: 18px; } }
+.grid-feature { position: relative; isolation: isolate; overflow: hidden; border-radius: 4px; min-height: 420px; display: flex; align-items: flex-end; color: var(--ivory); }
+.grid-feature picture { position: absolute; inset: 0; z-index: -1; }
+.grid-feature picture img { width: 100%; height: 100%; object-fit: cover; }
+.grid-feature::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(10, 22, 48, 0.75), transparent 60%); }
+.grid-feature > div { padding: 20px; display: grid; gap: 14px; justify-items: start; }
+.grid-feature-h { font: italic 300 28px/1.05 var(--serif); }
+.grid-feature .caption { color: rgba(243, 240, 233, 0.7); }
+.grid-feature .btn-ivory { color: var(--midnight); }
+@media (max-width: 800px) { .grid-feature { grid-column: 1 / -1; min-height: 360px; } }
+select, input, textarea {
+  min-height: 48px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--control);
+  background: var(--warm); font-size: 16px;
+}
+textarea { width: 100%; resize: vertical; line-height: 1.5; }
+.empty { padding: clamp(28px, 4vw, 56px); background: var(--warm); border: 1px solid var(--hairline); display: grid; gap: 16px; justify-items: start; }
+.empty h2 { font-size: clamp(28px, 2.6vw, 38px); }
+.empty p { color: var(--steel); max-width: 56ch; }

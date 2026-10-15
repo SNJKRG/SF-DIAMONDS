@@ -1,0 +1,40 @@
+/* ---------- Product ---------- */
+.product { padding-top: clamp(112px, 11vw, 150px); padding-bottom: clamp(64px, 8vw, 120px); }
+.crumbs { font-size: 14px; color: var(--steel); margin-bottom: 28px; }
+.crumbs a { display: inline-flex; min-height: 44px; align-items: center; }
+.product-grid { display: grid; grid-template-columns: minmax(0, 58fr) minmax(0, 42fr); gap: 32px clamp(32px, 5vw, 80px); align-items: start; }
+.product-media {
+  position: relative; aspect-ratio: 4 / 5; border-radius: 4px; overflow: hidden;
+  background: radial-gradient(ellipse 80% 70% at 50% 45%, #1b2e50 0%, var(--midnight) 60%, var(--night) 100%);
+  display: grid; place-items: center; color: var(--champagne-light);
+}
+.product-media .sketch { width: 56%; }
+.product-media picture { position: absolute; inset: 0; }
+.product-media img { width: 100%; height: 100%; object-fit: cover; }
+.specs { margin: 0 0 20px; padding-left: 18px; color: var(--steel); display: grid; gap: 6px; }
+.product-media .card-tag { color: rgba(243, 240, 233, 0.75); }
+.product-info { display: grid; gap: 10px; }
+.product-info h1 { font-size: clamp(40px, 4.4vw, 64px); line-height: 1; margin-bottom: 12px; }
+.product-info .actions { margin-top: 20px; align-items: center; }
+.product-info .save { margin-top: 0; }
+.under { color: var(--steel); font-size: 15px; margin-top: 4px; }
+.size { border: 0; padding: 0; margin: 20px 0 0; display: grid; gap: 10px; }
+.size legend { font-weight: 600; font-size: 15px; margin-bottom: 8px; padding: 0; }
+.size input[type='text'] { max-width: 180px; }
+.check { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px; cursor: pointer; }
+.check input { min-height: 0; width: 20px; height: 20px; accent-color: var(--midnight); }
+.hint { font-size: 14px; color: var(--steel); }
+.details { margin-top: 28px; border-bottom: 1px solid var(--hairline); }
+details { border-top: 1px solid var(--hairline); }
+summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  min-height: 56px; cursor: pointer; list-style: none; font-weight: 600;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font: 400 24px/1 var(--sans); color: var(--steel); }
+details[open] > summary::after { content: '−'; }
+details > p { padding-bottom: 20px; color: var(--steel); max-width: 60ch; }
+@media (max-width: 860px) {
+  .product-grid { grid-template-columns: 1fr; }
+  .product-media { aspect-ratio: 1; }
+}
