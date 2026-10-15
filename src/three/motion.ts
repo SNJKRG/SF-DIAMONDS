@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import { bandGeometry, meleeGeometry, settingGeometries, stoneGeometry } from './ring.ts';
 
-export const DURATION = 4;
+const DURATION = 4;
 const W = 1280, H = 720;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });

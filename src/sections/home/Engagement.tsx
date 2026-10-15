@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
-import { useLang } from '../../store.ts';
+import { pad, useLang } from '../../store.ts';
 import { WhatsApp } from '../../components/Ext.tsx';
 import { Picture } from '../../components/Picture.tsx';
 import { Reveal } from '../../components/Reveal.tsx';
-import { pad } from './Panel.tsx';
 import './Engagement.css';
 
 export default function Engagement({ n }: { n: number }) {

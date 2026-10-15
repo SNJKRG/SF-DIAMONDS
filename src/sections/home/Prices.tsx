@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
 import { Link } from 'react-router-dom';
-import { links } from '../../content.ts';
 import { products, useLang } from '../../store.ts';
-import { Ext } from '../../components/Ext.tsx';
 import ProductCard from '../../components/ProductCard.tsx';
 import './Prices.css';
 

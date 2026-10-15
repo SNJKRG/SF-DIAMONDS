@@ -144,6 +144,7 @@ export const productBySlug = (slug?: string) => products.find((p) => p.slug === 
 export const formatPrice = (n: number, lang: Lang) => new Intl.NumberFormat(t[lang].locale).format(n);
 export const priceLabel = (p: Product, lang: Lang) => (p.offer ? formatPrice(p.offer, lang) : t[lang].prices.onRequest);
 export const fill = (s: string, vars: Record<string, string | number>) => s.replace(/\{(\w+)\}/g, (_, k: string) => String(vars[k]));
+export const pad = (n: number) => String(n).padStart(2, '0');
 export const waLink = (text: string) => `${links.whatsapp}?text=${encodeURIComponent(text)}`;
 
 export function useLang() {
@@ -153,7 +154,7 @@ export function useLang() {
 }
 
 // Shortlist: [{ id, size }] in localStorage, shared across tabs. Unknown ids stay and are labelled, never swapped.
-export type ShortlistItem = { id: string; size: string };
+type ShortlistItem = { id: string; size: string };
 const KEY = 'sf-shortlist';
 const listeners = new Set<() => void>();
 let cache: ShortlistItem[] | undefined;

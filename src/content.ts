@@ -606,6 +606,6 @@ const en: Dict = {
   },
 };
 
-export type Dict = typeof ru;
+type Dict = typeof ru;
 export type Lang = 'ru' | 'en';
 export const t: Record<Lang, Dict> = { ru, en };

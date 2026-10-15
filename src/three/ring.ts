@@ -21,10 +21,9 @@ export const RING = {
   paveStone: 1.25, // shank melee diameter
 };
 
-export const bandTop = () => RING.innerRadius + RING.bandThickness;
+const bandTop = () => RING.innerRadius + RING.bandThickness;
 const pavilionDepth = () => RING.pavilionRatio * RING.stoneWidth;
-export const girdleY = () => bandTop() + RING.settingGap + RING.girdleHalf + pavilionDepth();
-export const stoneTopY = () => girdleY() + RING.girdleHalf + RING.crownRatio * RING.stoneWidth;
+const girdleY = () => bandTop() + RING.settingGap + RING.girdleHalf + pavilionDepth();
 
 // Comfort-fit band: superellipse cross-section revolved around the ring axis.
 export function bandGeometry() {
@@ -47,7 +46,7 @@ export function bandGeometry() {
  * Crown: table, 8 stars, 8 bezels (kites), 16 upper girdle facets. Pavilion: 8 mains, 16 lower girdle facets.
  * Flat-shaded (non-indexed) with outward normals.
  */
-export function brilliantGeometry(w: number, l: number, opt = { crown: 0.14, pavilion: 0.43, table: 0.56, girdle: 0.03 }) {
+function brilliantGeometry(w: number, l: number, opt = { crown: 0.14, pavilion: 0.43, table: 0.56, girdle: 0.03 }) {
   const hc = opt.crown * w, hp = opt.pavilion * w, g = opt.girdle * w;
   const at = (deg: number, r: number, y: number) => {
     const a = (deg * Math.PI) / 180;
@@ -195,7 +194,7 @@ export function settingGeometries() {
 export const CUSHION = { top: -4.2, width: 27, depth: 12.5, height: 15, round: 5.6 };
 
 // Camera presets: azimuth from +Z toward +X, elevation, distance scale, target. Shared by hero and capture.
-export type Preset = { az: number; el: number; dist: number; target: [number, number, number] };
+type Preset = { az: number; el: number; dist: number; target: [number, number, number] };
 export const PRESETS: Record<string, Preset> = {
   '01-hero-front': { az: 58, el: 20, dist: 1, target: [0, -0.5, 0] },
   '02-side-profile': { az: 90, el: 8, dist: 1, target: [0, -0.5, 0] },

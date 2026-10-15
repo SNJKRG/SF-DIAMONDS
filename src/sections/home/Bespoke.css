@@ -17,7 +17,6 @@
 .statement h2 span + span { text-align: right; color: var(--ivory); }
 .bespoke-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 40px; margin-top: auto; }
 .bespoke-cta p { max-width: 56ch; color: rgba(243, 240, 233, 0.8); font-size: 15px; }
-.bespoke .caption { color: rgba(243, 240, 233, 0.6); }
 @media (max-width: 860px) {
   .bespoke-media { height: 62vw; grid-template-columns: 1fr; }
   .bespoke-b { display: none; }

@@ -2,7 +2,6 @@
 .engage { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); }
 .engage-media { position: relative; background: var(--night); }
 .engage-media picture, .engage-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.engage-media .caption { position: absolute; left: var(--gutter); bottom: 16px; color: rgba(243, 240, 233, 0.7); }
 .engage-text {
   padding: clamp(104px, 13svh, 140px) var(--gutter) clamp(32px, 5svh, 56px) clamp(32px, 5vw, 96px);
   display: flex; flex-direction: column; gap: 18px; max-width: 760px;
@@ -21,9 +20,9 @@
 }
 /* Desktop panels are exactly one screen: keep the text column inside it. */
 @media (min-width: 900px) and (min-height: 640px) {
-  .snap .engage-text { padding-top: clamp(80px, 11svh, 132px); padding-bottom: clamp(20px, 4svh, 48px); gap: clamp(10px, 1.6svh, 18px); justify-content: center; }
-  .snap .engage-text h2 { font-size: clamp(36px, min(4.4vw, 8svh), 76px); }
-  .snap .steps li > div { padding: clamp(8px, 1.4svh, 16px) 0; }
-  .snap .steps h3 { font-size: clamp(19px, 2.6svh, 24px); }
-  .snap .steps p { font-size: 14px; }
+  .home .engage-text { padding-top: clamp(80px, 11svh, 132px); padding-bottom: clamp(20px, 4svh, 48px); gap: clamp(10px, 1.6svh, 18px); justify-content: center; }
+  .home .engage-text h2 { font-size: clamp(36px, min(4.4vw, 8svh), 76px); }
+  .home .steps li > div { padding: clamp(8px, 1.4svh, 16px) 0; }
+  .home .steps h3 { font-size: clamp(19px, 2.6svh, 24px); }
+  .home .steps p { font-size: 14px; }
 }

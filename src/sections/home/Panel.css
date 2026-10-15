@@ -1,8 +1,8 @@
 /* ---------- Full-screen panels (home). Plain native scroll. ---------- */
 @media (min-width: 900px) and (min-height: 640px) {
   /* Panels are exactly one viewport tall. */
-  .snap .panel:not(.about), .snap .about-a, .snap .about-b { height: 100svh; min-height: 0; overflow: hidden; }
-  .snap .panel:not(.bespoke) > .panel-inner { height: 100%; min-height: 0; }
+  .home .panel:not(.about), .home .about-a, .home .about-b { height: 100svh; min-height: 0; overflow: hidden; }
+  .home .panel:not(.bespoke) > .panel-inner { height: 100%; min-height: 0; }
 }
 .panel { position: relative; min-height: 100svh; }
 .panel-inner {
@@ -27,15 +27,5 @@
 }
 .panel-head .label { grid-column: 1 / -1; }
 .panel-head h2 { font-size: clamp(40px, min(4.6vw, 8svh), 76px); line-height: 0.98; font-weight: 300; letter-spacing: -0.01em; }
-.caption { font-size: 12px; color: var(--steel); }
 @media (max-width: 860px) { .panel-head { grid-template-columns: 1fr; } }
 
-.panel-counter {
-  position: fixed; z-index: 40; right: 14px; top: 50%; margin: 0; writing-mode: vertical-rl; transform: translateY(-50%);
-  font: 400 11px/1 var(--display); letter-spacing: 0.12em; text-transform: uppercase;
-  color: #fff; mix-blend-mode: difference; pointer-events: none;
-  transition: opacity 0.4s;
-}
-.panel-counter em { font-style: normal; margin-top: 14px; }
-.panel-counter.on-dark { opacity: 0; }
-@media (max-width: 900px) { .panel-counter { display: none; } }

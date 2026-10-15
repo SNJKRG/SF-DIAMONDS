@@ -3,20 +3,20 @@ import { Link } from 'react-router-dom';
 import { links } from '../content.ts';
 import { Ext, WhatsApp } from '../components/Ext.tsx';
 import PageIntro from '../components/PageIntro.tsx';
-import { ConceptFigure, Picture, type ImageName } from '../components/Picture.tsx';
+import { Picture, type ImageName } from '../components/Picture.tsx';
 import { Reveal } from '../components/Reveal.tsx';
 import './Editorial.css';
-import { useLang } from '../store.ts';
+import { pad, useLang } from '../store.ts';
 
 type EditorialPage = 'bespoke' | 'engagement' | 'materials' | 'about' | 'service';
 // Pages told as numbered steps, photo and text alternating (Messika "Our services" layout).
-const STEP_PHOTOS: Partial<Record<EditorialPage, Extract<ImageName, `ig-${string}`>[]>> = { bespoke: ['ig-hands-rings', 'ig-coffee', 'ig-neckline'] };
+const BESPOKE_STEP_PHOTOS = ['ig-hands-rings', 'ig-coffee', 'ig-neckline'] as const;
 
 export function Editorial({ page, image }: { page: EditorialPage; image?: Extract<ImageName, 'page-bespoke' | 'page-engagement'> }) {
   const { s, to } = useLang();
   const c = s.pages[page];
   const message = 'message' in c ? c.message : s.closing.message;
-  const photos = STEP_PHOTOS[page];
+  const photos = page === 'bespoke' ? BESPOKE_STEP_PHOTOS : undefined;
   return (
     <>
       <PageIntro title={s.seo[page]} h1={c.h1} lead={c.lead}>
@@ -30,14 +30,14 @@ export function Editorial({ page, image }: { page: EditorialPage; image?: Extrac
         )}
       </PageIntro>
       <div className="section wrap">
-        {image && <Reveal className="wipe"><ConceptFigure name={image} alt={s.alts[image]} sizes="(max-width: 1440px) 100vw, 1440px" /></Reveal>}
+        {image && <Reveal className="wipe"><figure className="concept"><Picture name={image} alt={s.alts[image]} sizes="(max-width: 1440px) 100vw, 1440px" /></figure></Reveal>}
         {photos ? (
           <ol className="ed-steps">
             {c.sections.map(([h, body], i) => (
               <li key={i} className="ed-step">
                 <Reveal className="ed-step-photo wipe"><Picture name={photos[i]} alt={s.alts[photos[i]]} sizes="(max-width: 860px) 100vw, 40vw" /></Reveal>
                 <Reveal className="ed-step-text" i={1}>
-                  <span className="ed-step-no" aria-hidden>{String(i + 1).padStart(2, '0')}</span>
+                  <span className="ed-step-no" aria-hidden>{pad(i + 1)}</span>
                   <h2>{h}</h2>
                   <p>{body}</p>
                 </Reveal>

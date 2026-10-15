@@ -1,5 +1,3 @@
-import { useLang } from '../store.ts';
-
 const imgSet = {
   // Section photos: SF channel pieces re-staged by AI on site-palette surfaces (ai-generation-bases/out/sections);
   // where the angle allowed, the original stones are pasted back by mask. One photo per place, never repeated.
@@ -61,14 +59,5 @@ export function Picture({ name, alt, sizes, className }: { name: ImageName; alt:
       <source type="image/webp" srcSet={set('webp')} sizes={sizes} />
       <img src={`/img/${name}-${widths[0]}.jpg`} srcSet={set('jpg')} sizes={sizes} width={w} height={h} alt={alt} loading="lazy" decoding="async" />
     </picture>
-  );
-}
-
-export function ConceptFigure({ name, alt, sizes }: { name: ImageName; alt: string; sizes: string }) {
-  const { s } = useLang();
-  return (
-    <figure className="concept">
-      <Picture name={name} alt={alt} sizes={sizes} />
-    </figure>
   );
 }

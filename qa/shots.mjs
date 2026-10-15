@@ -1,11 +1,13 @@
 // Screenshots + basic checks against a running server: node qa/shots.mjs [baseUrl] [filter]
 // Saves qa/shots/<locale>-<page>-<viewport>.png and prints console errors and horizontal overflow.
+// STABLE=1: reduced motion and no WebGL canvas, so before/after shots of a change compare pixel for pixel.
 import { chromium } from 'playwright';
 import { mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 const base = process.argv[2] ?? 'http://localhost:4173';
 const only = process.argv[3];
+const stable = !!process.env.STABLE;
 const out = fileURLToPath(new URL('./shots/', import.meta.url));
 mkdirSync(out, { recursive: true });
 
@@ -16,7 +18,7 @@ const viewports = { d1440: [1440, 900], m390: [390, 844] };
 const browser = await chromium.launch({ args: ['--enable-unsafe-swiftshader', '--use-angle=swiftshader'] });
 let problems = 0;
 for (const [vname, [width, height]] of Object.entries(viewports)) {
-  const ctx = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1 });
+  const ctx = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1, reducedMotion: stable ? 'reduce' : 'no-preference' });
   for (const lang of ['ru', 'en']) {
     for (const p of pages) {
       const name = `${lang}-${p.replaceAll('/', '_') || 'home'}-${vname}`;
@@ -26,6 +28,7 @@ for (const [vname, [width, height]] of Object.entries(viewports)) {
       page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
       page.on('pageerror', (e) => errors.push(e.message));
       await page.goto(`${base}/${lang}/${p}`, { waitUntil: 'networkidle' });
+      if (stable) await page.addStyleTag({ content: 'canvas{visibility:hidden!important}' });
       await page.waitForTimeout(p === '' ? 4000 : 400);
       // Scroll through so lazy images load before the full-page shot.
       await page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 600) { window.scrollTo(0, y); await new Promise((r) => setTimeout(r, 60)); } window.scrollTo(0, 0); });

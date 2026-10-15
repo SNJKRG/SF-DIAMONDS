@@ -33,7 +33,7 @@
 }
 /* Home: the hero wordmark already names the brand, so the header logo waits until the hero is scrolled past. */
 .logo { transition: opacity 0.5s var(--ease), visibility 0.5s; }
-html.snap .site-header:not(.is-solid):not(.is-open) .logo { opacity: 0; visibility: hidden; }
+html:has(.home) .site-header:not(.is-solid):not(.is-open) .logo { opacity: 0; visibility: hidden; }
 .wordmark { font: 400 20px/1 var(--serif); letter-spacing: 0.34em; text-transform: uppercase; white-space: nowrap; margin-right: -0.34em; }
 
 .shortlist-link { display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-width: 44px; min-height: 44px; color: var(--fg); text-decoration: none; }

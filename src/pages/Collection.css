@@ -34,7 +34,6 @@
 .grid-feature::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(10, 22, 48, 0.75), transparent 60%); }
 .grid-feature > div { padding: 20px; display: grid; gap: 14px; justify-items: start; }
 .grid-feature-h { font: italic 300 28px/1.05 var(--serif); }
-.grid-feature .caption { color: rgba(243, 240, 233, 0.7); }
 .grid-feature .btn-ivory { color: var(--midnight); }
 @media (max-width: 800px) { .grid-feature { grid-column: 1 / -1; min-height: 360px; } }
 select, input, textarea {

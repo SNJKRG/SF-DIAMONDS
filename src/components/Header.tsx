@@ -4,18 +4,13 @@ import { links, type Category } from '../content.ts';
 import { useLang, useShortlist } from '../store.ts';
 import LangSwitch from './LangSwitch.tsx';
 import { Ext } from './Ext.tsx';
+import { Heart } from './SaveButton.tsx';
 import { Picture, type ImageName } from './Picture.tsx';
 import './Header.css';
 
 const menuCats: [Exclude<Category, 'watches'>, ImageName][] = [
   ['rings', 'tg-ring-oval'], ['earrings', 'tg-earrings'], ['necklaces', 'tg-necklace'], ['bracelets', 'tg-bracelets'],
 ];
-
-const HeartIcon = () => (
-  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden>
-    <path d="M12 20.3s-7.6-4.6-7.6-10.2A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.6 2.7c0 5.6-7.6 10.2-7.6 10.2z" />
-  </svg>
-);
 
 // One row: menu on the left, centred wordmark, language and shortlist on the right.
 // Transparent over the navy top band, slim ivory bar below it. Everything else lives in the menu.
@@ -75,7 +70,7 @@ export default function Header() {
         <div className="bar-end">
           <LangSwitch />
           <Link to={to('/shortlist')} className="shortlist-link" aria-label={`${s.nav.shortlist}: ${list.length}`}>
-            <HeartIcon />{list.length > 0 && <span className="count">{list.length}</span>}
+            <Heart width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.3" />{list.length > 0 && <span className="count">{list.length}</span>}
           </Link>
         </div>
       </div>

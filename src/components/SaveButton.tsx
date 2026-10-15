@@ -1,8 +1,9 @@
+import type { SVGProps } from 'react';
 import { useLang, useShortlist, type Product } from '../store.ts';
 import { announce } from './announce.ts';
 
-const Heart = () => (
-  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden>
+export const Heart = (props: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden {...props}>
     <path d="M12 20.3s-7.6-4.6-7.6-10.2A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.6 2.7c0 5.6-7.6 10.2-7.6 10.2z" />
   </svg>
 );
